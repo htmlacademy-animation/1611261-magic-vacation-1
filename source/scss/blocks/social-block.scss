@@ -1,3 +1,6 @@
+$socialTransitionTiming: 0.3s;
+$socialTransitionDelay: 0.15s;
+
 .social-block {
   position: relative;
 
@@ -35,6 +38,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width 0.25s ease, height 0.25s ease;
+    transition-delay: 0.15s;
   }
 
   svg {
@@ -168,6 +173,14 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+
+  .social-block--active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -207,6 +220,8 @@
   }
 
   &--fb {
+    transition-delay: $socialTransitionDelay;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +234,8 @@
   }
 
   &--insta {
+    transition-delay: $socialTransitionDelay * 2;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +248,8 @@
   }
 
   &--vk {
+    transition-delay: $socialTransitionDelay * 3;
+
     svg {
       width: 1.7rem;
       height: 1rem;

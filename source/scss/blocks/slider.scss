@@ -96,6 +96,16 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(55px);
+  transition-duration: 0.5s;
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+
+  &.--active {
+    transform: translateX(0);
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
