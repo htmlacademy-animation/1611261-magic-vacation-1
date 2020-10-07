@@ -37,6 +37,17 @@ $menuItemAnimation: 0.3s ease;
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-30px);
+  opacity: 0;
+  transition-timing-function: $quickEntryFunction;
+  transition-delay: 0.3s;
+  transition-property: transform, opacity;
+  transition-duration: 0.25s;
+
+  body.--loaded & {
+    transform: translateX(0);
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -132,6 +143,13 @@ $menuItemAnimation: 0.3s ease;
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  transition-delay: 0.4s;
+
+  body.--loaded & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
